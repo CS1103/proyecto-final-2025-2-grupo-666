@@ -114,7 +114,6 @@ void ControllerDemo::run_simulation(int steps) {
 
     for (int t = 0; t < steps; t++) {
 
-        // obtenemos probabilidades reales de Softmax
         Tensor<double,2> x(std::array<size_t,2>{1,2});
         x(0,0)=p;
         x(0,1)=v;

@@ -31,11 +31,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7b13d7a5-b354-4e0d-9038-ebd81f31180c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/utec/apps/EnvGym.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/apps/EnvGym.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/utec/nn/nn_activation.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/nn/nn_activation.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/utec/nn/nn_loss.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/nn/nn_loss.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/utec/apps/ControllerDemo.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/apps/ControllerDemo.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utec/apps/ControllerDemo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/utec/apps/ControllerDemo.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utec/apps/EnvGym.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/utec/apps/EnvGym.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utec/apps/PatternClassifier.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/utec/apps/PatternClassifier.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +154,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1764609500693</updated>
-      <workItem from="1764609501560" duration="10748000" />
+      <workItem from="1764609501560" duration="11375000" />
     </task>
     <servers />
   </component>

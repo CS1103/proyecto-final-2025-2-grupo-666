@@ -10,10 +10,7 @@
 #include <vector>
 #include "utec/apps/EnvGym.h"
 #include "utec/nn/neural_network.h"
-#include "utec/nn/nn_dense.h"
-#include "utec/nn/nn_activation.h"
 #include "utec/nn/nn_loss.h"
-#include "utec/nn/nn_optimizer.h"
 
 class ControllerDemo {
 public:
