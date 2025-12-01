@@ -48,7 +48,7 @@ int read_int(const std::string& prompt, int min, int max) {
         std::getline(std::cin, line);
 
         if (line.empty()) {
-            std::cout << "Entrada inválida. Intenta nuevamente.\n";
+            std::cout << "Entrada invalida. Intenta nuevamente.\n";
             continue;
         }
 
@@ -61,7 +61,7 @@ int read_int(const std::string& prompt, int min, int max) {
             // ignorar
         }
 
-        std::cout << "Entrada inválida. Intenta nuevamente.\n";
+        std::cout << "Entrada invalida. Intenta nuevamente.\n";
     }
 }
 
