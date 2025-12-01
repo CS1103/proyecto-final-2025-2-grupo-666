@@ -24,6 +24,8 @@ add_executable(pong_ai
         ${PROJECT_SOURCES}
         include/utec/apps/TrainingPipeline.h
         src/utec/apps/TrainingPipeline.cpp
+        src/utec/apps/Interfaz.cpp
+        include/utec/apps/Interfaz.h
 )
 
 # ============================
