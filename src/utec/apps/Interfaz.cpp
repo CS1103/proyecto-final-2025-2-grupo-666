@@ -44,15 +44,24 @@ int read_int(const std::string& prompt, int min, int max) {
     while (true) {
         std::cout << prompt;
 
-        int v;
-        std::cin >> v;
+        std::string line;
+        std::getline(std::cin, line);
 
-        if (std::cin.good() && v >= min && v <= max) {
-            return v;
+        if (line.empty()) {
+            std::cout << "Entrada inválida. Intenta nuevamente.\n";
+            continue;
         }
 
-        std::cout << "Entrada invalida. Intenta nuevamente.\n";
-        clear_input();
+        try {
+            int v = std::stoi(line);
+            if (v >= min && v <= max) {
+                return v;
+            }
+        } catch (...) {
+            // ignorar
+        }
+
+        std::cout << "Entrada inválida. Intenta nuevamente.\n";
     }
 }
 
