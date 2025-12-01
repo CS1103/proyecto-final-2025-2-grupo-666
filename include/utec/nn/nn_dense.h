@@ -19,8 +19,6 @@ namespace utec::neural_network {
         Tensor<T, 2> _db;
 
     public:
-
-        // >>>>>>>>>>>>> NUEVO: constructor vacío <<<<<<<<<<<<<<
         Dense()
             : _W(std::array<size_t,2>{1,1}),
               _b(std::array<size_t,2>{1,1}),
@@ -28,7 +26,6 @@ namespace utec::neural_network {
               _dW(std::array<size_t,2>{1,1}),
               _db(std::array<size_t,2>{1,1})
         {}
-        // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
         template <typename InitWFun, typename InitBFun>
         Dense(size_t in_f, size_t out_f, InitWFun init_w_fun, InitBFun init_b_fun)
@@ -60,7 +57,7 @@ namespace utec::neural_network {
         }
 
         // ============================================
-        //  SERIALIZACIÓN DEL MODELO
+        //           SERIALIZACIÓN DEL MODELO
         // ============================================
         std::string type() const override {
             return "Dense";
@@ -72,14 +69,12 @@ namespace utec::neural_network {
 
             os << sW[0] << " " << sW[1] << "\n";
 
-            // Pesos W
             for (size_t i = 0; i < sW[0]; i++) {
                 for (size_t j = 0; j < sW[1]; j++)
                     os << _W(i,j) << " ";
                 os << "\n";
             }
 
-            // Bias B
             for (size_t j = 0; j < sB[1]; j++)
                 os << _b(0,j) << " ";
             os << "\n";

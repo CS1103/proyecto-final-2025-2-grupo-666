@@ -13,11 +13,8 @@ class EnvGym {
 public:
     EnvGym();
 
-    /// Reinicia el entorno
     std::pair<double,double> reset();
 
-    /// Ejecuta una acción (0=izquierda,1=detener,2=derecha)
-    /// Devuelve: (position, velocity)
     std::pair<double,double> step(int action);
 
 private:

@@ -12,7 +12,6 @@ ControllerDemo::ControllerDemo() {
     srand((unsigned) time(nullptr));
     build_dataset();
 
-    // NN: entrada = 2 (pos, vel), oculta = 8, salida = 3 (acciones)
     nn.add_layer(std::make_unique<Dense<double>>(2, 8,
         [](auto& W){
             for (size_t i = 0; i < W.shape()[0]; i++)
@@ -48,14 +47,9 @@ void ControllerDemo::build_dataset() {
     X.clear();
     Y.clear();
 
-    // Regla base:
-    // Si pos < -0.05 → mover derecha (2)
-    // Si pos >  0.05 → mover izquierda (0)
-    // Si cerca de 0 → detener (1)
-
     for (int i = 0; i < 200; i++) {
-        double pos = ((rand() % 2000) / 1000.0) - 1.0; // [-1,1]
-        double vel = ((rand() % 1000) / 1000.0) - 0.5; // [-0.5,0.5]
+        double pos = ((rand() % 2000) / 1000.0) - 1.0;
+        double vel = ((rand() % 1000) / 1000.0) - 0.5;
 
         X.push_back({pos, vel});
 

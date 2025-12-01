@@ -12,7 +12,6 @@ namespace utec::neural_network {
   template<typename T, size_t DIMS>
   using Tensor = utec::algebra::Tensor<T, DIMS>;
 
-  // Interfaz del optimizador (SGD o Adam)
   template<typename T>
   struct IOptimizer {
     virtual ~IOptimizer() = default;
@@ -20,7 +19,6 @@ namespace utec::neural_network {
     virtual void step() {}
   };
 
-  // Interfaz de las capas (Dense y los diferentes tipos de activación)
   template<typename T>
   struct ILayer {
     virtual ~ILayer() = default;
@@ -30,14 +28,13 @@ namespace utec::neural_network {
     virtual void update_params(IOptimizer<T>& optimizer) {}
 
     // ===========================
-    // SERIALIZACIÓN (NUEVO)
+    //        SERIALIZACIÓN
     // ===========================
     virtual void save(std::ostream& os) const = 0;
     virtual void load(std::istream& is) = 0;
     virtual std::string type() const = 0;
   };
 
-  // Interfaz de las perdidas (MSE o BCE)
   template<typename T, size_t DIMS>
   struct ILoss {
     virtual ~ILoss() = default;

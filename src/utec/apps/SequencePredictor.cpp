@@ -13,13 +13,8 @@ using namespace utec::neural_network;
 SequencePredictor::SequencePredictor() {
     build_dataset();
 
-    // Inicializar generador aleatorio
     srand((unsigned) time(nullptr));
 
-    // Arquitectura de la red:
-    // Entrada: 3 valores normalizados
-    // Oculta: 8 neuronas + ReLU
-    // Salida: 1 valor (también normalizado)
     nn.add_layer(std::make_unique<Dense<double>>(3, 8,
         [](auto& W){
             for (size_t i = 0; i < W.shape()[0]; i++)
@@ -47,18 +42,11 @@ SequencePredictor::SequencePredictor() {
                     b(i,j) = 0.0;
         }
     ));
-    // No activation after final Dense → output is linear
 }
 
 void SequencePredictor::build_dataset() {
     X.clear();
     Y.clear();
-
-    // Creamos secuencias:
-    // [1,2,3] → 4
-    // [2,3,4] → 5
-    // ...
-    // Pero TODO normalizado dividiendo entre 20
     for (int a = 1; a <= 20; ++a) {
         X.push_back({
             (double)a / 20.0,
@@ -90,14 +78,12 @@ void SequencePredictor::train(size_t epochs, double lr) {
 double SequencePredictor::predict(const std::vector<double>& input) {
     if (input.size() != 3) return 0.0;
 
-    // Normalizamos entrada
     Tensor<double,2> x(std::array<size_t,2>{1,3});
     for (size_t j = 0; j < 3; ++j)
         x(0,j) = input[j] / 20.0;
 
     Tensor<double,2> out = nn.predict(x);
 
-    // Desnormalizamos salida
     return out(0,0) * 20.0;
 }
 

@@ -17,6 +17,9 @@
   </component>
   <component name="CMakeRunConfigurationManager">
     <generated>
+      <config projectName="proyecto_final_2025_2_grupo_666" targetName="test_apps" />
+      <config projectName="proyecto_final_2025_2_grupo_666" targetName="test_tensor" />
+      <config projectName="proyecto_final_2025_2_grupo_666" targetName="test_nn" />
       <config projectName="proyecto_final_2025_2_grupo_666" targetName="pong_ai" />
     </generated>
   </component>
@@ -27,22 +30,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b13d7a5-b354-4e0d-9038-ebd81f31180c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/include/utec/apps/ControllerDemo.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/utec/apps/EnvGym.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/utec/apps/PatternClassifier.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/utec/apps/SequencePredictor.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utec/apps/ControllerDemo.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utec/apps/EnvGym.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utec/apps/PatternClassifier.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utec/apps/SequencePredictor.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/utec/algebra/tensor.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/algebra/tensor.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_applications.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_neural_network.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_tensor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/utec/apps/ControllerDemo.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/apps/ControllerDemo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/utec/apps/EnvGym.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/apps/EnvGym.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/utec/apps/PatternClassifier.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/apps/PatternClassifier.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/utec/apps/SequencePredictor.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/apps/SequencePredictor.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/utec/nn/neural_network.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/nn/neural_network.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/utec/nn/nn_activation.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/nn/nn_activation.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/utec/nn/nn_dense.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/nn/nn_dense.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/utec/nn/nn_interfaces.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/nn/nn_interfaces.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/utec/nn/nn_loss.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/nn/nn_loss.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/utec/nn/nn_optimizer.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/nn/nn_optimizer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utec/apps/ControllerDemo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/utec/apps/ControllerDemo.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utec/apps/EnvGym.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/utec/apps/EnvGym.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utec/apps/PatternClassifier.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/utec/apps/PatternClassifier.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utec/apps/SequencePredictor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/utec/apps/SequencePredictor.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,8 +94,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "C/C++ File.test_applications.cpp.executor": "Run",
     "CMake Application.pong_ai.executor": "Run",
     "CMake Application.proyecto_final_2025_2_grupo_666.executor": "Run",
+    "CMake Application.test_apps.executor": "Run",
+    "CMake Application.test_nn.executor": "Run",
+    "CMake Application.test_tensor.executor": "Run",
     "RunOnceActivity.west.config.association.type.startup.service": "true",
     "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
@@ -101,12 +110,13 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario\Desktop\EPIC3\proyecto-final-2025-2-grupo-666" />
       <recent name="C:\Users\Usuario\Desktop\EPIC3\proyecto-final-2025-2-grupo-666\include\utec\algebra" />
       <recent name="C:\Users\Usuario\Desktop\EPIC3\proyecto-final-2025-2-grupo-666\docs" />
       <recent name="C:\Users\Usuario\Desktop\EPIC3\proyecto-final-2025-2-grupo-666\include\utec\nn" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="CMake Application.pong_ai">
     <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
@@ -117,6 +127,39 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test_apps" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="proyecto_final_2025_2_grupo_666" TARGET_NAME="test_apps" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="proyecto_final_2025_2_grupo_666" RUN_TARGET_NAME="test_apps">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_nn" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="proyecto_final_2025_2_grupo_666" TARGET_NAME="test_nn" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="proyecto_final_2025_2_grupo_666" RUN_TARGET_NAME="test_nn">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_tensor" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="proyecto_final_2025_2_grupo_666" TARGET_NAME="test_tensor" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="proyecto_final_2025_2_grupo_666" RUN_TARGET_NAME="test_tensor">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_applications.cpp" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="proyecto_final_2025_2_grupo_666" TARGET_NAME="test_applications.cpp" CONFIG_NAME="test_applications.cpp">
+      <option name="sourceFile" value="tests\test_applications.cpp" />
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="C/C++ File.test_applications.cpp" />
+      <item itemvalue="CMake Application.pong_ai" />
+      <item itemvalue="CMake Application.test_apps" />
+      <item itemvalue="CMake Application.test_nn" />
+      <item itemvalue="CMake Application.test_tensor" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="C/C++ File.test_applications.cpp" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -125,7 +168,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1764609500693</updated>
-      <workItem from="1764609501560" duration="6698000" />
+      <workItem from="1764609501560" duration="9007000" />
     </task>
     <servers />
   </component>

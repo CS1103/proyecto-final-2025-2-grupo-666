@@ -8,7 +8,7 @@
 EnvGym::EnvGym() : position(0.0), velocity(0.0) {}
 
 std::pair<double,double> EnvGym::reset() {
-    position = ( (rand() % 2000) / 1000.0 ) - 1.0; // [-1,1]
+    position = ( (rand() % 2000) / 1000.0 ) - 1.0;
     velocity = 0.0;
     return {position, velocity};
 }
@@ -20,7 +20,7 @@ std::pair<double,double> EnvGym::step(int action) {
     if (action == 2) force = force_right;
 
     velocity += force;
-    velocity *= (1.0 - friction); // fricción
+    velocity *= (1.0 - friction);
 
     position += velocity;
 

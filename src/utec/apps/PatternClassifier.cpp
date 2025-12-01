@@ -12,15 +12,13 @@ using namespace utec::neural_network;
 PatternClassifier::PatternClassifier() {
     build_dataset();
 
-    // Inicializar generador aleatorio
     srand((unsigned) time(nullptr));
 
-    // Capa oculta 1
     nn.add_layer(std::make_unique<Dense<double>>(3, 8,
         [](auto& W){
             for (size_t i = 0; i < W.shape()[0]; i++)
                 for (size_t j = 0; j < W.shape()[1]; j++)
-                    W(i,j) = ((double) rand() / RAND_MAX) * 0.2 - 0.1; // [-0.1, 0.1]
+                    W(i,j) = ((double) rand() / RAND_MAX) * 0.2 - 0.1;
         },
         [](auto& b){
             for (size_t i = 0; i < b.shape()[0]; i++)
@@ -31,7 +29,6 @@ PatternClassifier::PatternClassifier() {
 
     nn.add_layer(std::make_unique<ReLU<double>>());
 
-    // Capa de salida
     nn.add_layer(std::make_unique<Dense<double>>(8, 3,
         [](auto& W){
             for (size_t i = 0; i < W.shape()[0]; i++)
@@ -49,7 +46,6 @@ PatternClassifier::PatternClassifier() {
 }
 
 void PatternClassifier::build_dataset() {
-    // Tres patrones sintéticos
     X = {
         {0.9, 0.1, 0.1}, // círculo
         {0.1, 0.9, 0.1}, // cuadrado

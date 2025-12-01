@@ -61,20 +61,18 @@ namespace utec::neural_network {
         }
 
         // ============================================================
-        //                SERIALIZACIÓN DEL MODELO
+        //                 SERIALIZACIÓN DEL MODELO
         // ============================================================
         void save_model(const std::string& filename) {
             std::ofstream f(filename);
             if (!f.is_open()) return;
 
-            // Guardamos número de capas
             f << _layers.size() << "\n";
 
-            // Guardamos cada capa
             for (auto& layer : _layers) {
                 f << layer->type() << "\n";
                 layer->save(f);
-                f << "---\n"; // separador
+                f << "---\n";
             }
         }
 
@@ -107,9 +105,8 @@ namespace utec::neural_network {
                     _layers.push_back(std::move(lyr));
                 }
 
-                // consumir separador '---'
                 std::string sep;
-                f >> sep; // debe ser ---
+                f >> sep;
             }
         }
 

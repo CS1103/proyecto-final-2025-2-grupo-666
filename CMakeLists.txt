@@ -4,14 +4,48 @@ project(proyecto_final_2025_2_grupo_666)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Incluye las cabeceras
+# ============================
+#           INCLUDES
+# ============================
 include_directories(include)
 
-# Busca todos los archivos .cpp en src/
-file(GLOB_RECURSE SOURCES
+# ============================
+#    FUENTES DEL PROYECTO
+# ============================
+file(GLOB_RECURSE PROJECT_SOURCES
         src/*.cpp
 )
 
-add_executable(pong_ai ${SOURCES}
-        include/utec/apps/EnvGym.h
-        src/utec/apps/EnvGym.cpp)
+# ============================
+#    EJECUTABLE PRINCIPAL
+# ============================
+add_executable(pong_ai
+        main.cpp
+        ${PROJECT_SOURCES}
+)
+
+# ============================
+#      TEST 1 — Tensor
+# ============================
+add_executable(test_tensor
+        tests/test_tensor.cpp
+)
+target_include_directories(test_tensor PRIVATE include)
+
+# ============================
+#   TEST 2 — Neural Network
+# ============================
+add_executable(test_nn
+        tests/test_neural_network.cpp
+        ${PROJECT_SOURCES}
+)
+target_include_directories(test_nn PRIVATE include)
+
+# ============================
+#    TEST 3 — Applications
+# ============================
+add_executable(test_apps
+        tests/test_applications.cpp
+        ${PROJECT_SOURCES}
+)
+target_include_directories(test_apps PRIVATE include)

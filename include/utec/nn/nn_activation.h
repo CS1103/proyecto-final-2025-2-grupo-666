@@ -28,7 +28,7 @@ namespace utec::neural_network {
         }
 
         // ============================================
-        //  SERIALIZACIÓN ReLU
+        //             SERIALIZACIÓN ReLU
         // ============================================
         std::string type() const override {
             return "ReLU";
@@ -55,7 +55,7 @@ namespace utec::neural_network {
         }
 
         // ============================================
-        //  SERIALIZACIÓN Sigmoid
+        //          SERIALIZACIÓN Sigmoid
         // ============================================
         std::string type() const override {
             return "Sigmoid";
