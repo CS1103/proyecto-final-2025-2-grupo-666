@@ -14,14 +14,6 @@
 #include "utec/apps/TrainingPipeline.h"
 
 namespace fs = std::filesystem;
-// COLORES ANSI
-#define RESET   "\033[0m"
-#define RED     "\033[31m"
-#define GREEN   "\033[32m"
-#define YELLOW  "\033[33m"
-#define BLUE    "\033[34m"
-#define CYAN    "\033[36m"
-#define BOLD    "\033[1m"
 
 void clear_input() {
     std::cin.clear();
@@ -33,13 +25,13 @@ bool file_exists(const std::string& name) {
 }
 
 void pause() {
-    std::cout << YELLOW << "\nPresiona ENTER para continuar..." << RESET;
+    std::cout << "\nPresiona ENTER para continuar...";
     std::cin.get();
 }
 
 // Loader animado
 void loader(const std::string& msg, int steps = 3, int delay_ms = 250) {
-    std::cout << CYAN << msg << RESET;
+    std::cout << msg;
     for (int i = 0; i < steps; i++) {
         std::cout << "." << std::flush;
         std::this_thread::sleep_for(std::chrono::milliseconds(delay_ms));
@@ -59,7 +51,7 @@ int read_int(const std::string& prompt, int min, int max) {
             return v;
         }
 
-        std::cout << RED << "Entrada invalida. Intenta nuevamente.\n" << RESET;
+        std::cout << "Entrada invalida. Intenta nuevamente.\n";
         clear_input();
     }
 }
@@ -76,12 +68,10 @@ void run_console_interface() {
 
     while (true) {
 
-        std::cout << BLUE << BOLD;
         std::cout << "\n=========================================\n";
         std::cout << "   EPIC 3 - Neural Systems Interface\n";
-        std::cout << "=========================================\n" << RESET;
+        std::cout << "=========================================\n";
 
-        std::cout << CYAN;
         std::cout << "1) Entrenar PatternClassifier\n";
         std::cout << "2) Entrenar SequencePredictor\n";
         std::cout << "3) Entrenar ControllerDemo\n";
@@ -89,7 +79,7 @@ void run_console_interface() {
         std::cout << "5) Guardar modelos\n";
         std::cout << "6) Cargar modelos\n";
         std::cout << "7) Ejecutar Pipeline Experimental\n";
-        std::cout << "8) Salir\n" << RESET;
+        std::cout << "8) Salir\n";
 
         int op = read_int("\nSelecciona una opcion: ", 1, 8);
 
@@ -100,7 +90,7 @@ void run_console_interface() {
             pc.train(3000, 0.1);
             classifier_trained = true;
 
-            std::cout << GREEN << "Entrenado: " << RESET;
+            std::cout << "Entrenado: ";
             std::cout << "{0.9,0.1,0.1} -> " << pc.predict({0.9,0.1,0.1}) << "\n";
             pause();
         }
@@ -112,7 +102,7 @@ void run_console_interface() {
             sp.train(3000, 0.01);
             sequence_trained = true;
 
-            std::cout << GREEN << "Entrenado: " << RESET;
+            std::cout << "Entrenado: ";
             std::cout << "[1,2,3] -> " << sp.predict({1,2,3}) << "\n";
             pause();
         }
@@ -124,7 +114,7 @@ void run_console_interface() {
             cd.train(3000, 0.05);
             controller_trained = true;
 
-            std::cout << GREEN << "Entrenado: " << RESET;
+            std::cout << "Entrenado: ";
             std::cout << "accion(0.5,0.0) -> " << cd.predict(0.5,0.0) << "\n";
             pause();
         }
@@ -133,12 +123,12 @@ void run_console_interface() {
         else if (op == 4) {
 
             if (!classifier_trained && !sequence_trained && !controller_trained) {
-                std::cout << RED << "No hay modelos entrenados.\n" << RESET;
+                std::cout << "No hay modelos entrenados.\n";
                 pause();
                 continue;
             }
 
-            std::cout << "\n" << CYAN << "--- PRUEBAS ---\n" << RESET;
+            std::cout << "\n" << "--- PRUEBAS ---\n";
 
             if (classifier_trained)
                 std::cout << "PatternClassifier: {0.1,0.9,0.1} -> "
@@ -161,7 +151,7 @@ void run_console_interface() {
             if (sequence_trained)  sp.save_model("sequence.model");
             if (controller_trained) cd.save_model("controller.model");
 
-            std::cout << GREEN << "Modelos guardados.\n" << RESET;
+            std::cout << "Modelos guardados.\n";
             pause();
         }
 
@@ -183,7 +173,7 @@ void run_console_interface() {
                 controller_trained = true;
             }
 
-            std::cout << GREEN << "Modelos cargados.\n" << RESET;
+            std::cout << "Modelos cargados.\n";
             pause();
         }
 
@@ -191,10 +181,10 @@ void run_console_interface() {
         else if (op == 7) {
             loader("Ejecutando Pipeline Experimental", 5, 150);
 
-            std::cout << BLUE << "\n=== PIPELINE SECUENCIA ===\n" << RESET;
+            std::cout << "\n=== PIPELINE SECUENCIA ===\n";
             run_sequence_pipeline();
 
-            std::cout << BLUE << "\n=== PIPELINE CLASIFICACION ===\n" << RESET;
+            std::cout << "\n=== PIPELINE CLASIFICACION ===\n";
             run_pattern_pipeline();
 
             pause();
@@ -202,7 +192,7 @@ void run_console_interface() {
 
         //  8) SALIR
         else if (op == 8) {
-            std::cout << GREEN << "\nSaliendo...\n" << RESET;
+            std::cout << "\nSaliendo...\n";
             break;
         }
     }
