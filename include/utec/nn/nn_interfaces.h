@@ -5,7 +5,7 @@
 #ifndef PROG3_NN_FINAL_PROJECT_V2025_01_LAYER_H
 #define PROG3_NN_FINAL_PROJECT_V2025_01_LAYER_H
 
-#include "tensor.h"
+#include "utec/algebra/tensor.h"
 
 namespace utec::neural_network {
 
@@ -27,9 +27,14 @@ namespace utec::neural_network {
     virtual Tensor<T,2> forward(const Tensor<T,2>& x) = 0;
     virtual Tensor<T,2> backward(const Tensor<T,2>& gradients) = 0;
 
-    // Se utiliza para actualizar los parameters a través el optimizador
-    // Se puede llamar tanto el método update y step si es requerido
     virtual void update_params(IOptimizer<T>& optimizer) {}
+
+    // ===========================
+    // SERIALIZACIÓN (NUEVO)
+    // ===========================
+    virtual void save(std::ostream& os) const = 0;
+    virtual void load(std::istream& is) = 0;
+    virtual std::string type() const = 0;
   };
 
   // Interfaz de las perdidas (MSE o BCE)

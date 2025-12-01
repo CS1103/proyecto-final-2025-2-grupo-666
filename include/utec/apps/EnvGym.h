@@ -1,0 +1,32 @@
+//
+// Created by Usuario on 1/12/2025.
+//
+
+#ifndef PROYECTO_FINAL_2025_2_GRUPO_666_ENVGYM_H
+#define PROYECTO_FINAL_2025_2_GRUPO_666_ENVGYM_H
+
+#pragma once
+
+#include <utility>
+
+class EnvGym {
+public:
+    EnvGym();
+
+    /// Reinicia el entorno
+    std::pair<double,double> reset();
+
+    /// Ejecuta una acción (0=izquierda,1=detener,2=derecha)
+    /// Devuelve: (position, velocity)
+    std::pair<double,double> step(int action);
+
+private:
+    double position;
+    double velocity;
+
+    double force_left  = -0.1;
+    double force_right =  0.1;
+    double friction    =  0.01;
+};
+
+#endif //PROYECTO_FINAL_2025_2_GRUPO_666_ENVGYM_H

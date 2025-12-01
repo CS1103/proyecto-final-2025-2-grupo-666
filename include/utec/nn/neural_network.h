@@ -5,11 +5,16 @@
 #ifndef PROG3_NN_FINAL_PROJECT_V2025_01_NEURAL_NETWORK_H
 #define PROG3_NN_FINAL_PROJECT_V2025_01_NEURAL_NETWORK_H
 
-#include "nn_interfaces.h"
-#include "nn_loss.h"
-#include "nn_optimizer.h"
+#include "utec/nn/nn_interfaces.h"
+#include "utec/nn/nn_loss.h"
+#include "utec/nn/nn_optimizer.h"
+#include "utec/nn/nn_dense.h"
+#include "utec/nn/nn_activation.h"
+
 #include <vector>
 #include <memory>
+#include <fstream>
+#include <string>
 
 namespace utec::neural_network {
 
@@ -54,6 +59,60 @@ namespace utec::neural_network {
                 optimizer.step();
             }
         }
+
+        // ============================================================
+        //                SERIALIZACIÓN DEL MODELO
+        // ============================================================
+        void save_model(const std::string& filename) {
+            std::ofstream f(filename);
+            if (!f.is_open()) return;
+
+            // Guardamos número de capas
+            f << _layers.size() << "\n";
+
+            // Guardamos cada capa
+            for (auto& layer : _layers) {
+                f << layer->type() << "\n";
+                layer->save(f);
+                f << "---\n"; // separador
+            }
+        }
+
+        void load_model(const std::string& filename) {
+            std::ifstream f(filename);
+            if (!f.is_open()) return;
+
+            size_t num_layers = 0;
+            f >> num_layers;
+
+            _layers.clear();
+
+            for (size_t i = 0; i < num_layers; ++i) {
+                std::string type;
+                if (!(f >> type)) break;
+
+                if (type == "Dense") {
+                    auto lyr = std::make_unique<Dense<T>>(1, 1, [](auto&){}, [](auto&){});
+                    lyr->load(f);
+                    _layers.push_back(std::move(lyr));
+                }
+                else if (type == "ReLU") {
+                    auto lyr = std::make_unique<ReLU<T>>();
+                    lyr->load(f);
+                    _layers.push_back(std::move(lyr));
+                }
+                else if (type == "Sigmoid") {
+                    auto lyr = std::make_unique<Sigmoid<T>>();
+                    lyr->load(f);
+                    _layers.push_back(std::move(lyr));
+                }
+
+                // consumir separador '---'
+                std::string sep;
+                f >> sep; // debe ser ---
+            }
+        }
+
     };
 
 }

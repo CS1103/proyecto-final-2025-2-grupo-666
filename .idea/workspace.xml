@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+  </component>
+  <component name="CMakePresetLoader"><![CDATA[{
+  "useNewFormat": true
+}]]></component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="proyecto_final_2025_2_grupo_666" targetName="pong_ai" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7b13d7a5-b354-4e0d-9038-ebd81f31180c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/include/utec/apps/ControllerDemo.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/utec/apps/EnvGym.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/utec/apps/PatternClassifier.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/utec/apps/SequencePredictor.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utec/apps/ControllerDemo.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utec/apps/EnvGym.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utec/apps/PatternClassifier.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utec/apps/SequencePredictor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/utec/algebra/tensor.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/algebra/tensor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/utec/nn/neural_network.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/nn/neural_network.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/utec/nn/nn_activation.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/nn/nn_activation.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/utec/nn/nn_dense.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/nn/nn_dense.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/utec/nn/nn_interfaces.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/nn/nn_interfaces.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/utec/nn/nn_loss.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/nn/nn_loss.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/utec/nn/nn_optimizer.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/nn/nn_optimizer.h" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "oswaldoaqm"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/CS1103/proyecto-final-2025-2-grupo-666",
+    "accountId": "902ffa6b-3014-47ef-abd5-188e8b391206"
+  }
+}]]></component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2025" />
+    <option name="minorVersion" value="2.4" />
+    <option name="productBranch" value="Classic" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="36Fk2VI9gLjYIXFVEDWfNY2HV4W" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "CMake Application.pong_ai.executor": "Run",
+    "CMake Application.proyecto_final_2025_2_grupo_666.executor": "Run",
+    "RunOnceActivity.west.config.association.type.startup.service": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario\Desktop\EPIC3\proyecto-final-2025-2-grupo-666\include\utec\algebra" />
+      <recent name="C:\Users\Usuario\Desktop\EPIC3\proyecto-final-2025-2-grupo-666\docs" />
+      <recent name="C:\Users\Usuario\Desktop\EPIC3\proyecto-final-2025-2-grupo-666\include\utec\nn" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="pong_ai" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="proyecto_final_2025_2_grupo_666" TARGET_NAME="pong_ai" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="proyecto_final_2025_2_grupo_666" RUN_TARGET_NAME="pong_ai">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7b13d7a5-b354-4e0d-9038-ebd81f31180c" name="Changes" comment="" />
+      <created>1764609500693</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764609500693</updated>
+      <workItem from="1764609501560" duration="6698000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
+</project>

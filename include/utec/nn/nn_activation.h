@@ -5,7 +5,7 @@
 #ifndef PROG3_NN_FINAL_PROJECT_V2025_01_ACTIVATION_H
 #define PROG3_NN_FINAL_PROJECT_V2025_01_ACTIVATION_H
 
-#include "nn_interfaces.h"
+#include "utec/nn/nn_interfaces.h"
 #include <cmath>
 
 namespace utec::neural_network {
@@ -26,6 +26,19 @@ namespace utec::neural_network {
             }
             return dM;
         }
+
+        // ============================================
+        //  SERIALIZACIÓN ReLU
+        // ============================================
+        std::string type() const override {
+            return "ReLU";
+        }
+
+        void save(std::ostream& os) const override {
+        }
+
+        void load(std::istream& is) override {
+        }
     };
 
     template <typename T>
@@ -39,6 +52,19 @@ namespace utec::neural_network {
 
         Tensor<T, 2> backward(const Tensor<T, 2>& g) override {
             return g * _s * (static_cast<T>(1) - _s);
+        }
+
+        // ============================================
+        //  SERIALIZACIÓN Sigmoid
+        // ============================================
+        std::string type() const override {
+            return "Sigmoid";
+        }
+
+        void save(std::ostream& os) const override {
+        }
+
+        void load(std::istream& is) override {
         }
     };
 
