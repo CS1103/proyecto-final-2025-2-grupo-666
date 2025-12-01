@@ -65,6 +65,31 @@ namespace utec::neural_network {
         }
     };
 
+    template <typename T>
+    class CrossEntropyLoss final : public ILoss<T, 2> {
+        Tensor<T, 2> _y_pred;
+        Tensor<T, 2> _y_true;
+        T _epsilon = 1e-8;
+        size_t _N;
+    public:
+        CrossEntropyLoss(const Tensor<T,2>& pred, const Tensor<T,2>& target)
+            : _y_pred(pred), _y_true(target) {
+            _N = pred.shape()[0];
+        }
+
+        T loss() const override {
+            T sum = 0;
+            for (size_t i = 0; i < _y_pred.size(); i++) {
+                sum += -(_y_true.begin()[i] * std::log(_y_pred.begin()[i] + _epsilon));
+            }
+            return sum / _N;
+        }
+
+        Tensor<T,2> loss_gradient() const override {
+            return (_y_pred - _y_true) / (T)_N;
+        }
+    };
+
 }
 
 #endif //PROG3_NN_FINAL_PROJECT_V2025_01_LOSS_H

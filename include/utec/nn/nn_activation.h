@@ -68,6 +68,41 @@ namespace utec::neural_network {
         }
     };
 
+    template <typename T>
+    class Softmax final : public ILayer<T> {
+        Tensor<T, 2> _y;
+    public:
+        Tensor<T, 2> forward(const Tensor<T, 2>& z) override {
+            auto shape = z.shape();
+            size_t R = shape[0], C = shape[1];
+
+            _y = Tensor<T,2>(shape);
+
+            for (size_t i = 0; i < R; i++) {
+                T max_val = z(i,0);
+                for (size_t j = 1; j < C; j++)
+                    if (z(i,j) > max_val) max_val = z(i,j);
+
+                T sum = 0.0;
+                for (size_t j = 0; j < C; j++) {
+                    _y(i,j) = std::exp(z(i,j) - max_val);
+                    sum += _y(i,j);
+                }
+                for (size_t j = 0; j < C; j++)
+                    _y(i,j) /= sum;
+            }
+            return _y;
+        }
+
+        Tensor<T, 2> backward(const Tensor<T, 2>& g) override {
+            return g * _y * (1 - _y);
+        }
+
+        std::string type() const override { return "Softmax"; }
+        void save(std::ostream&) const override {}
+        void load(std::istream&) override {}
+    };
+
 }
 
 #endif //PROG3_NN_FINAL_PROJECT_V2025_01_ACTIVATION_H

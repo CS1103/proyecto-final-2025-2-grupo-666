@@ -23,7 +23,8 @@ private:
 
     double force_left  = -0.1;
     double force_right =  0.1;
-    double friction    =  0.01;
+
+    double friction    =  0.2;
 };
 
 #endif //PROYECTO_FINAL_2025_2_GRUPO_666_ENVGYM_H
