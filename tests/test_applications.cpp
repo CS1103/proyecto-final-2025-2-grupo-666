@@ -13,7 +13,7 @@ int main() {
     // ============================================================
     // 1) PATTERN CLASSIFIER
     // ============================================================
-    PatternClassifier pc;
+    PatternClassifier pc(false);
     pc.train(2000, 0.1);
 
     assert(pc.predict({0.9,0.1,0.1}) == 0);
@@ -31,8 +31,8 @@ int main() {
     // ============================================================
     // 2) SEQUENCE PREDICTOR
     // ============================================================
-    SequencePredictor sp;
-    sp.train(2500, 0.01);
+    SequencePredictor sp(false);
+    sp.train(5000, 0.005);
 
     double p1 = sp.predict({1,2,3});
     assert(std::abs(p1 - 4) < 1.0);

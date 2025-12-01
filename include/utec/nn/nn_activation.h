@@ -95,7 +95,22 @@ namespace utec::neural_network {
         }
 
         Tensor<T, 2> backward(const Tensor<T, 2>& g) override {
-            return g * _y * (1 - _y);
+            auto shape = _y.shape();
+            size_t R = shape[0], C = shape[1];
+
+            Tensor<T,2> dz(shape);
+
+            for (size_t i = 0; i < R; i++) {
+                for (size_t j = 0; j < C; j++) {
+                    T sum = 0;
+                    for (size_t k = 0; k < C; k++) {
+                        T delta = (j == k ? 1.0 : 0.0);
+                        sum += g(i,k) * _y(i,k) * (delta - _y(i,j));
+                    }
+                    dz(i,j) = sum;
+                }
+            }
+            return dz;
         }
 
         std::string type() const override { return "Softmax"; }

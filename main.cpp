@@ -7,6 +7,7 @@
 #include "utec/apps/PatternClassifier.h"
 #include "utec/apps/SequencePredictor.h"
 #include "utec/apps/ControllerDemo.h"
+#include "utec/apps/TrainingPipeline.h"
 
 int main() {
 
@@ -17,7 +18,7 @@ int main() {
     std::cout << "   1) PatternClassifier (Entrenamiento)\n";
     std::cout << "===========================================\n";
 
-    PatternClassifier pc;
+    PatternClassifier pc(true);
     pc.train(3000, 0.1);
 
     std::cout << "Predicciones:\n";
@@ -45,7 +46,7 @@ int main() {
     std::cout << "   2) SequencePredictor (Entrenamiento)\n";
     std::cout << "===========================================\n";
 
-    SequencePredictor sp;
+    SequencePredictor sp(true);
     sp.train(4000, 0.01);
 
     std::cout << "Predicciones:\n";
@@ -119,6 +120,11 @@ int main() {
               << spB.predict({-5, -4, -3})
               << " (generalizacion no vista)\n";
 
+    // =======================================
+    //    PIPELINE EXPERIMENTAL
+    // =======================================
+    run_sequence_pipeline();
+    run_pattern_pipeline();
 
     // ===========================================================
     // FIN

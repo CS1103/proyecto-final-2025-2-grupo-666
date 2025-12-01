@@ -13,15 +13,20 @@
 
 class PatternClassifier {
 public:
-    PatternClassifier();
+    PatternClassifier(bool use_noise = true);
 
-    void train(size_t epochs = 2000, double lr = 0.1);
+    void train(size_t epochs = 3000, double lr = 0.01);
     int predict(const std::vector<double>& input);
 
     void save_model(const std::string& filename);
     void load_model(const std::string& filename);
 
+    const std::vector<std::vector<double>>& get_X() const { return X; }
+    const std::vector<std::vector<double>>& get_Y() const { return Y; }
+
 private:
+    bool use_noise;
+
     utec::neural_network::NeuralNetwork<double> nn;
 
     std::vector<std::vector<double>> X;

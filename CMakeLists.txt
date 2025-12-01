@@ -22,6 +22,8 @@ file(GLOB_RECURSE PROJECT_SOURCES
 add_executable(pong_ai
         main.cpp
         ${PROJECT_SOURCES}
+        include/utec/apps/TrainingPipeline.h
+        src/utec/apps/TrainingPipeline.cpp
 )
 
 # ============================

@@ -30,10 +30,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b13d7a5-b354-4e0d-9038-ebd81f31180c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/include/utec/apps/TrainingPipeline.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utec/apps/TrainingPipeline.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/utec/apps/ControllerDemo.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/apps/ControllerDemo.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utec/apps/ControllerDemo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/utec/apps/ControllerDemo.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/utec/apps/PatternClassifier.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/apps/PatternClassifier.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/utec/apps/SequencePredictor.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/apps/SequencePredictor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/utec/nn/neural_network.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/nn/neural_network.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/utec/nn/nn_activation.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utec/nn/nn_activation.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utec/apps/PatternClassifier.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/utec/apps/PatternClassifier.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utec/apps/SequencePredictor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/utec/apps/SequencePredictor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_applications.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_applications.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +162,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1764609500693</updated>
-      <workItem from="1764609501560" duration="11375000" />
+      <workItem from="1764609501560" duration="16099000" />
     </task>
     <servers />
   </component>

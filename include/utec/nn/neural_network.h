@@ -17,12 +17,47 @@
 #include <string>
 
 namespace utec::neural_network {
+    template <typename T>
+    std::unique_ptr<ILayer<T>> clone_layer(const ILayer<T>* layer) {
+        if (layer->type() == "Dense") {
+            auto d = dynamic_cast<const Dense<T>*>(layer);
+            return std::make_unique<Dense<T>>(*d);
+        }
+        if (layer->type() == "ReLU") {
+            return std::make_unique<ReLU<T>>();
+        }
+        if (layer->type() == "Sigmoid") {
+            return std::make_unique<Sigmoid<T>>();
+        }
+        if (layer->type() == "Softmax") {
+            return std::make_unique<Softmax<T>>();
+        }
+        return nullptr;
+    }
 
     template <typename T>
     class NeuralNetwork {
         std::vector<std::unique_ptr<ILayer<T>>> _layers;
 
     public:
+        NeuralNetwork() = default;
+
+        NeuralNetwork(const NeuralNetwork& other) {
+            for (const auto& lyr : other._layers) {
+                _layers.push_back(clone_layer<T>(lyr.get()));
+            }
+        }
+
+        NeuralNetwork& operator=(const NeuralNetwork& other) {
+            if (this != &other) {
+                _layers.clear();
+                for (const auto& lyr : other._layers) {
+                    _layers.push_back(clone_layer<T>(lyr.get()));
+                }
+            }
+            return *this;
+        }
+
         void add_layer(std::unique_ptr<ILayer<T>> layer) {
             _layers.push_back(std::move(layer));
         }
@@ -60,9 +95,6 @@ namespace utec::neural_network {
             }
         }
 
-        // ============================================================
-        //                 SERIALIZACIÓN DEL MODELO
-        // ============================================================
         void save_model(const std::string& filename) {
             std::ofstream f(filename);
             if (!f.is_open()) return;
@@ -101,6 +133,11 @@ namespace utec::neural_network {
                 }
                 else if (type == "Sigmoid") {
                     auto lyr = std::make_unique<Sigmoid<T>>();
+                    lyr->load(f);
+                    _layers.push_back(std::move(lyr));
+                }
+                else if (type == "Softmax") {
+                    auto lyr = std::make_unique<Softmax<T>>();
                     lyr->load(f);
                     _layers.push_back(std::move(lyr));
                 }

@@ -9,24 +9,28 @@
 
 #include <vector>
 #include <string>
-#include "utec/nn/neural_network.h"
 
 class SequencePredictor {
 public:
-    SequencePredictor();
+    SequencePredictor(bool use_noise = true);
 
     void train(size_t epochs = 3000, double lr = 0.01);
-
     double predict(const std::vector<double>& input);
 
     void save_model(const std::string& filename);
     void load_model(const std::string& filename);
 
+    const std::vector<std::vector<double>>& get_X() const { return X; }
+    const std::vector<double>& get_Y() const { return Y; }
+
 private:
-    utec::neural_network::NeuralNetwork<double> nn;
+    bool use_noise;
 
     std::vector<std::vector<double>> X;
     std::vector<double> Y;
+
+    double w_ = 1.0;
+    double b_ = 3.0;
 
     void build_dataset();
 };
