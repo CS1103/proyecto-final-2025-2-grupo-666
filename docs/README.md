@@ -641,7 +641,6 @@ classDiagram
     }
 
     PatternClassifier --> NeuralNetwork
-    SequencePredictor --> SequencePredictor
     ControllerDemo --> NeuralNetwork
     ControllerDemo --> EnvGym
 
