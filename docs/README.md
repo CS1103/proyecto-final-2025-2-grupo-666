@@ -39,6 +39,7 @@ El proyecto cumple estrictamente los criterios de **funcionamiento**, **eficienc
 8. [Conclusiones](#8-conclusiones)
 9. [Bibliografía](#9-bibliografía)
 10. [Diagramas UML](#10-diagrama-uml)
+11. [Licencia](#11-licencia)
 
 ---
 
@@ -50,13 +51,12 @@ El proyecto cumple estrictamente los criterios de **funcionamiento**, **eficienc
 
 ## Integrantes (Plantilla editable)
 
-| Código | Alumno | Rol Principal |
-|:------:|:-------|:--------------|
-| 20XXXXX | Alumno A | Desarrollo del Core (Tensor y NN) |
-| 20XXXXX | Alumno B | Optimizadores y Funciones de Pérdida |
-| 20XXXXX | Alumno C | Aplicaciones (Patterns / Sequence / Controller) |
-| 20XXXXX | Alumno D | Pipelines y Pruebas Automatizadas |
-| 20XXXXX | Alumno E | Documentación, UI y Video Demo |
+|   Código   | Alumno                           | Rol Principal                                       |
+|:----------:|:---------------------------------|:----------------------------------------------------|
+| 202320133  | Lucia Jimena Cartagena Miranda   | Desarrollo del Core (Tensor y NN -- EPIC 1, EPIC 2) |
+| 202410409  | Piero Max Ortiz Villafuerte      | Optimizadores y Funciones de Pérdida                |
+| 202320184  | Rodrigo Alonzo Ibarra Carhuarica | Pipelines y Pruebas Automatizadas                   |
+| 202320077  | Oswaldo Alejandro Quispe Monzón  | Aplicaciones (Patterns / Sequence / Controller)     |
 
 > Se utilizó GitHub para control de versiones.
 
@@ -88,8 +88,7 @@ make
 
 La disciplina tiene sus raíces en **1943**, con el desarrollo de la **neurona de McCulloch-Pitts** por Warren McCulloch y Walter Pitts, sentando el primer **modelo computacional** del funcionamiento neuronal
 
-[Image of McCulloch-Pitts neuron]
-. Quince años después, el interés práctico surgió con el **Perceptrón** (1958) de Frank Rosenblatt, la primera red neuronal capaz de **aprender** a partir de datos, aunque limitada a problemas **linealmente separables**.
+Quince años después, el interés práctico surgió con el **Perceptrón** (1958) de Frank Rosenblatt, la primera red neuronal capaz de **aprender** a partir de datos, aunque limitada a problemas **linealmente separables**.
 
 La principal barrera inicial se superó en la década de **1980** con la reinvención del algoritmo de **Retropropagación (Backpropagation)**. Este avance fue fundamental, ya que permitió el entrenamiento eficiente de redes con **múltiples capas ocultas**. Hacia **1989**, Yann LeCun introdujo las **Redes Neuronales Convolucionales (CNN)**, una arquitectura inspirada en el córtex visual optimizada para el **reconocimiento de imágenes**.
 
@@ -348,7 +347,7 @@ EPIC 3 - Neural Systems Interface
 
 # 5. Ejecución
 
-> **Demo en video**: Video/presentación alojado en `docs/presentación.mp4`.
+> **Demo en video**: Video/presentación alojado en `docs/link-a-video-presentación-grupo-666.txt`.
 
 ---
 
@@ -426,13 +425,12 @@ El pipeline valida la búsqueda de hiperparámetros, ejecutado sobre `SequencePr
 
 # 7. Trabajo en equipo
 
-| Tarea                     | Miembro  | Rol                       |
-| ------------------------- | -------- | ------------------------- |
-| Investigación teórica     | Alumno A | Documentar bases teóricas |
-| Diseño de la arquitectura | Alumno B | UML y esquemas de clases  |
-| Implementación del modelo | Alumno C | Código C++ de la NN       |
-| Pruebas y benchmarking    | Alumno D | Generación de métricas    |
-| Documentación y demo      | Alumno E | Tutorial y video demo     |
+| Tarea                                           | Miembro  | Rol                       |
+|-------------------------------------------------| -------- | ------------------------- |
+| Implementar correctamente el uso del EPIC 1 y 2 | Lucia Jimena Cartagena Miranda   | Desarrollo del Core (Tensor y NN -- EPIC 1, EPIC 2) |
+| Ajustar optimizadores y funciones de pérdida    | Piero Max Ortiz Villafuerte      | Optimizadores y Funciones de Pérdida                |
+| Creación del pipeline y tests                   | Rodrigo Alonzo Ibarra Carhuarica | Pipelines y Pruebas Automatizadas                   |
+| Aplicacion completa de archivos .h y .cpp       | Oswaldo Alejandro Quispe Monzón  | Aplicaciones (Patterns / Sequence / Controller)     |
 
 ---
 
@@ -512,7 +510,7 @@ classDiagram
     Dense --> Tensor : tiene
 ```
 
-### Licencia
+# 11. Licencia
 
 Este proyecto usa la licencia **MIT**. Ver [LICENSE](LICENSE) para detalles.
 
