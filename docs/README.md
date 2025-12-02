@@ -86,7 +86,7 @@ make
 
 Se investigaron los siguientes fundamentos:
 
-## Tensores y Broadcasting
+## 3.1. Tensores y Broadcasting
 
 Basado en **Golub & Van Loan (2013)**. Incluye:
 
@@ -97,13 +97,13 @@ Basado en **Golub & Van Loan (2013)**. Incluye:
 
 ---
 
-## Propagación Forward y Backward
+## 3.2. Propagación Forward y Backward
 
 Implementada manualmente siguiendo a **Rumelhart, Hinton & Williams (1986)**.
 
 ---
 
-## Funciones de Activación
+## 3.3. Funciones de Activación
 
 * **ReLU**
 * **Sigmoid**
@@ -111,14 +111,14 @@ Implementada manualmente siguiendo a **Rumelhart, Hinton & Williams (1986)**.
 
 ---
 
-## Optimización
+## 3.4. Optimización
 
 * **SGD** (Descenso de Gradiente Estocástico)
 * **Adam** (Momentos + corrección por sesgo)
 
 ---
 
-## Funciones de Pérdida (Loss Functions)
+## 3.5. Funciones de Pérdida (Loss Functions)
 
 * **MSE** (Error Cuadrático Medio)
 * **BCE** (Pérdida de Entropía Binaria Cruzada)
@@ -126,7 +126,7 @@ Implementada manualmente siguiendo a **Rumelhart, Hinton & Williams (1986)**.
 
 ---
 
-## Métodos de Búsqueda de Hiperparámetros
+## 3.6. Métodos de Búsqueda de Hiperparámetros
 
 Basados en **Russell & Norvig (AI: A Modern Approach)**:
 
