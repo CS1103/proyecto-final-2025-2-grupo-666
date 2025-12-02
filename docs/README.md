@@ -33,7 +33,7 @@ El proyecto cumple estrictamente los criterios de **funcionamiento**, **eficienc
 2. [Requisitos e instalación](#2-requisitos-e-instalación)
 3. [Investigación teórica](#3-investigación-teórica)
 4. [Diseño e implementación](#4-diseño-e-implementación)
-5. [Manual de Uso](#5-ejecución)
+5. [Ejecución](#5-ejecución)
 6. [Análisis del rendimiento y Pipelines](#6-análisis-del-rendimiento)
 7. [Trabajo en equipo](#7-trabajo-en-equipo)
 8. [Conclusiones](#8-conclusiones)
@@ -84,7 +84,63 @@ make
 
 # 3. Investigación Teórica
 
-Se investigaron los siguientes fundamentos:
+### 1. Evolución Histórica de las Redes Neuronales (NN)
+
+La disciplina tiene sus raíces en **1943**, con el desarrollo de la **neurona de McCulloch-Pitts** por Warren McCulloch y Walter Pitts, sentando el primer **modelo computacional** del funcionamiento neuronal
+
+[Image of McCulloch-Pitts neuron]
+. Quince años después, el interés práctico surgió con el **Perceptrón** (1958) de Frank Rosenblatt, la primera red neuronal capaz de **aprender** a partir de datos, aunque limitada a problemas **linealmente separables**.
+
+La principal barrera inicial se superó en la década de **1980** con la reinvención del algoritmo de **Retropropagación (Backpropagation)**. Este avance fue fundamental, ya que permitió el entrenamiento eficiente de redes con **múltiples capas ocultas**. Hacia **1989**, Yann LeCun introdujo las **Redes Neuronales Convolucionales (CNN)**, una arquitectura inspirada en el córtex visual optimizada para el **reconocimiento de imágenes**.
+
+El verdadero avance hacia el **Deep Learning** se consolidó en **2006** con la aparición de las **Deep Belief Networks (DBN)**, que hicieron factible el entrenamiento de modelos con decenas o cientos de capas. Hacia **2014**, la creación de las **Generative Adversarial Networks (GAN)** marcó otra revolución al dotar a las redes de la capacidad de **generar contenido sintético**.
+
+---
+
+### 2. Tipos Principales de Arquitecturas
+
+Las arquitecturas de redes neuronales se especializan en diferentes estructuras de datos y tareas:
+
+#### a) Perceptrón Multicapa (MLP)
+
+* **Definición**: Es la **arquitectura *feedforward*** más básica, compuesta por una capa de entrada, capas ocultas y una capa de salida.
+* **Mecanismo**: Utiliza funciones de activación no lineales en las capas ocultas para **modelar relaciones complejas**.
+* **Aplicaciones**: Tareas de **clasificación** y **regresión** en conjuntos de datos tabulares o con entradas de tamaño fijo.
+
+#### b) Redes Neuronales Convolucionales (CNN)
+
+* **Definición**: La estructura estándar para el procesamiento de datos con formato de cuadrícula, especialmente **imágenes**.
+* **Mecanismo**: Emplea **capas convolucionales** con filtros para **extraer características** espaciales (como texturas o bordes) y **capas de *pooling*** para disminuir la dimensionalidad.
+* **Aplicaciones**: Dominan los campos de **visión por computadora** y detección de objetos.
+
+#### c) Redes Neuronales Recurrentes (RNN)
+
+* **Definición**: Arquitectura diseñada para gestionar **datos secuenciales y temporales**.
+* **Mecanismo**: Incorporan un **bucle de retroalimentación** que actúa como una "memoria", permitiendo que los estados de tiempo $t-1$ afecten el resultado en el momento $t$.
+* **Avance Clave**: Para resolver el **problema del gradiente desvaneciente** en secuencias largas, se crearon las **Long Short-Term Memory (LSTM)**, que utilizan **compuertas** (`input`, `forget`, `output`) para regular el flujo de información y mantener la memoria a largo plazo.
+* **Aplicaciones**: **Procesamiento de Lenguaje Natural (PLN)**, análisis de series temporales y reconocimiento de voz.
+
+---
+
+### 3. Algoritmos de Aprendizaje
+
+#### a) Retropropagación (Backpropagation)
+
+La retropropagación es el **algoritmo fundamental** que impulsa el aprendizaje, ajustando iterativamente los pesos para **minimizar la función de costo**.
+
+El proceso de ajuste consta de dos fases por iteración:
+
+1.  **Paso Adelante (*Forward Pass*)**: Se calcula la salida y la **función de pérdida** evalúa la magnitud del error.
+2.  **Paso Hacia Atrás (*Backward Pass*)**: El error se propaga hacia atrás. Aplicando la **regla de la cadena**, se determina el **gradiente**, que señala la **dirección y magnitud** en que deben modificarse los parámetros para reducir el error.
+
+#### b) Optimizadores
+
+Los optimizadores son algoritmos que **utilizan el gradiente** calculado por la retropropagación para implementar la **actualización de los pesos** de forma efectiva.
+
+* **Descenso del Gradiente (*Gradient Descent*)**: La base teórica. Mueve los pesos en la dirección opuesta al gradiente. La **Tasa de Aprendizaje** controla el tamaño de estos pasos.
+* **Variantes Avanzadas**: Optimizadores como **SGD**, **Adam** o **RMSProp** mejoran el *Gradient Descent* básico, ajustando dinámicamente la tasa de aprendizaje o incorporando la inercia (*momentos*) para acelerar la convergencia y manejar mejor problemas como los mínimos locales.
+
+Y además se investigaron los siguientes fundamentos:
 
 ## 3.1. Tensores y Broadcasting
 
@@ -114,7 +170,6 @@ Implementada manualmente siguiendo a **Rumelhart, Hinton & Williams (1986)**.
 ## 3.4. Optimización
 
 * **SGD** (Descenso de Gradiente Estocástico)
-* **Adam** (Momentos + corrección por sesgo)
 
 ---
 
@@ -142,7 +197,7 @@ El diseño sigue principios SOLID, utilizando polimorfismo y templates de C++20.
 
 * **`utec::algebra::Tensor<T, DIMS>`**: El núcleo matemático. Gestiona la memoria y las operaciones algebraicas.
 * **`utec::neural_network::ILayer`**: Interfaz base para todas las capas. Define `forward`, `backward`, `update_params` y métodos de serialización.
-* **`utec::neural_network::IOptimizer`**: Interfaz para estrategias de actualización de pesos (`SGD`, `Adam`).
+* **`utec::neural_network::IOptimizer`**: Interfaz para estrategias de actualización de pesos (`SGD`).
 * **`utec::neural_network::ILoss`**: Abstracción para calcular el error y su gradiente.
 
 * **Estructura de carpetas**:
@@ -157,7 +212,7 @@ El diseño sigue principios SOLID, utilizando polimorfismo y templates de C++20.
   │       │   ├── neural_network.h  # Clase contenedora principal
   │       │   ├── nn_dense.h        # Capa densa
   │       │   ├── nn_activation.h   # ReLU, Sigmoid, Softmax
-  │       │   ├── nn_optimizer.h    # Adam, SGD
+  │       │   ├── nn_optimizer.h    # SGD
   │       │   └── nn_loss.h         # MSE, CrossEntropy
   │       └── apps/
   │           ├── ControllerDemo.h  # Lógica del controlador (Epic 3)
@@ -232,7 +287,7 @@ El diseño sigue principios SOLID, utilizando polimorfismo y templates de C++20.
 
 ---
 
-## 4.4 Pipeline Experimental (`TrainingPipeline.h`)
+## 4.5 Pipeline Experimental (`TrainingPipeline.h`)
 
 Incluye:
 
@@ -243,9 +298,9 @@ Incluye:
 Permite entrenar modelos sin reescribir código, cumpliendo **autonomía total del sistema**.
 
 
-## 4.5 Manual de uso y casos de prueba
+## 4.6 Manual de uso y casos de prueba
 
-### 4.5.1 Interfaz de usuario
+### 4.6.1 Interfaz de usuario
 
 * **Cómo ejecutar**: `./pong_ai`
 * **Al Iniciar, aparecerá un menú interactivo con opciones**:
@@ -262,7 +317,7 @@ EPIC 3 - Neural Systems Interface
 7) Ejecutar Pipeline Experimental - Ejecuta Random Search, Grid Search y Hill Climbing
 8) Salir
 
-### 4.5.2 Comandos de Caso de Prueba
+### 4.6.2 Comandos de Caso de Prueba
 
 * **Casos de prueba**:
 
@@ -293,10 +348,7 @@ EPIC 3 - Neural Systems Interface
 
 # 5. Ejecución
 
-> **Demo en video**: Video/demo alojado en `docs/presentación.mp4`.
-> Pasos:
->
-> 1. 
+> **Demo en video**: Video/presentación alojado en `docs/presentación.mp4`.
 
 ---
 
