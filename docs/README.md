@@ -5,7 +5,7 @@
 
 ## Descripción
 
-Este proyecto desarrolla **un framework completo de Deep Learning en C++20 desde cero**, sin dependencias externas de álgebra lineal. Se implementa:
+Este proyecto desarrolla **un framework completo de Neuronas artificiales en C++20 desde cero**, sin dependencias externas de álgebra lineal. Se implementa:
 
 - Un motor tensorial eficiente (`Tensor<T,2>`).
 - Una arquitectura general para redes neuronales completamente funcional:
