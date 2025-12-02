@@ -33,7 +33,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7b13d7a5-b354-4e0d-9038-ebd81f31180c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/BIBLIOGRAFIA.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/BIBLIOGRAFIA.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +93,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "RunOnceActivity.west.config.association.type.startup.service": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
@@ -116,6 +117,11 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.pong_ai">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="pong_ai" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="proyecto_final_2025_2_grupo_666" TARGET_NAME="pong_ai" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="proyecto_final_2025_2_grupo_666" RUN_TARGET_NAME="pong_ai">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -163,7 +169,7 @@
       <option name="presentableId" value="Default" />
       <updated>1764609500693</updated>
       <workItem from="1764609501560" duration="18506000" />
-      <workItem from="1764631958044" duration="3358000" />
+      <workItem from="1764631958044" duration="7037000" />
     </task>
     <servers />
   </component>
