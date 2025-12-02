@@ -462,52 +462,209 @@ Este proyecto no solo cumple con los objetivos académicos planteados, sino que 
 A continuación, el UML completo
 ```mermaid
 classDiagram
-    class Tensor {
-        +shape()
-        +operator+()
-        +operator*()
+    class Tensor~T,DIMS~ {
+        - array<size_t,DIMS> _shape
+        - vector<T> _data
+        + shape() : array<size_t,DIMS>
+        + size() : size_t
+        + fill(T)
+        + dot(Tensor)
+        + transpose()
+        + sum(axis)
+        + operator+/-/*///(Tensor,scalar)
     }
 
-    class NeuralNetwork {
-        -layers : vector
-        +add_layer()
-        +train()
-        +predict()
-    }
-
-    class ILayer {
+    class ILayer~T~ {
         <<interface>>
-        +forward()
-        +backward()
-        +save()
+        + forward(Tensor) : Tensor
+        + backward(Tensor) : Tensor
+        + update_params(IOptimizer)
+        + save(ostream)
+        + load(istream)
+        + type() : string
     }
 
-    class Dense {
-        -weights : Tensor
-        -bias : Tensor
-    }
-
-    class ReLU {
-
-    }
-
-    class Softmax {
-
-    }
-
-    class IOptimizer {
+    class IOptimizer~T~ {
         <<interface>>
-        +update()
+        + update(Tensor,Tensor)
+        + step()
     }
 
-    %% Relaciones
-    NeuralNetwork o--> ILayer : contiene
+    class ILoss~T,DIMS~ {
+        <<interface>>
+        + loss() : T
+        + loss_gradient() : Tensor
+    }
+
+    class Dense~T~ {
+        - Tensor W
+        - Tensor b
+        - Tensor x
+        - Tensor dW
+        - Tensor db
+        + forward()
+        + backward()
+        + update_params()
+        + save()
+        + load()
+        + type()
+    }
+
+    class ReLU~T~ {
+        - Tensor z
+        + forward()
+        + backward()
+        + save()
+        + load()
+        + type()
+    }
+
+    class Sigmoid~T~ {
+        - Tensor s
+        + forward()
+        + backward()
+        + type()
+    }
+
+    class Softmax~T~ {
+        - Tensor y
+        + forward()
+        + backward()
+        + type()
+    }
+
     ILayer <|-- Dense
     ILayer <|-- ReLU
+    ILayer <|-- Sigmoid
     ILayer <|-- Softmax
 
-    Dense --> IOptimizer : usa
-    Dense --> Tensor : tiene
+    class SGD~T~ {
+        - learning_rate
+        + update()
+    }
+
+    class Adam~T~ {
+        - lr
+        - beta1
+        - beta2
+        - epsilon
+        - t
+        + update()
+        + step()
+    }
+
+    IOptimizer <|-- SGD
+    IOptimizer <|-- Adam
+
+    class MSELoss~T~ {
+        - Tensor y_pred
+        - Tensor y_true
+        - n_elements
+        + loss()
+        + loss_gradient()
+    }
+
+    class BCELoss~T~ {
+        - Tensor y_pred
+        - Tensor y_true
+        - n_elements
+        + loss()
+        + loss_gradient()
+    }
+
+    class CrossEntropyLoss~T~ {
+        - Tensor y_pred
+        - Tensor y_true
+        + loss()
+        + loss_gradient()
+    }
+
+    ILoss <|-- MSELoss
+    ILoss <|-- BCELoss
+    ILoss <|-- CrossEntropyLoss
+
+    class NeuralNetwork~T~ {
+        - vector<ILayer*> layers
+        + add_layer()
+        + predict()
+        + train()
+        + save_model()
+        + load_model()
+    }
+
+    NeuralNetwork --> ILayer : "contiene"
+    NeuralNetwork --> IOptimizer : "usa"
+    NeuralNetwork --> ILoss : "usa"
+
+    class EnvGym {
+        - position : double
+        - velocity : double
+        - force_left : double
+        - force_right : double
+        - friction : double
+        + reset()
+        + step(action)
+    }
+
+    class PatternClassifier {
+        - bool use_noise
+        - NeuralNetwork nn
+        - vector<vector<double>> X
+        - vector<vector<double>> Y
+        + train()
+        + predict()
+        + save_model()
+        + load_model()
+    }
+
+    class SequencePredictor {
+        - bool use_noise
+        - vector<vector<double>> X
+        - vector<double> Y
+        - w_ : double
+        - b_ : double
+        + train()
+        + predict()
+        + save_model()
+        + load_model()
+    }
+
+    class ControllerDemo {
+        - NeuralNetwork nn
+        - EnvGym env
+        - X : vector<vector<double>>
+        - Y : vector<int>
+        + train()
+        + predict()
+        + run_simulation()
+        + save_model()
+        + load_model()
+    }
+
+    PatternClassifier --> NeuralNetwork
+    ControllerDemo --> NeuralNetwork
+    ControllerDemo --> EnvGym
+    SequencePredictor --> "modelo lineal (w,b)"
+
+    class TrainingPipeline {
+        <<static>>
+        + random_search()
+        + hill_climb()
+        + grid_search()
+    }
+
+    TrainingPipeline ..> PatternClassifier : "usa"
+    TrainingPipeline ..> SequencePredictor : "usa"
+
+    class Interfaz {
+        <<global function>>
+        + run_console_interface()
+    }
+
+    Interfaz ..> PatternClassifier
+    Interfaz ..> SequencePredictor
+    Interfaz ..> ControllerDemo
+
 ```
 
 # 11. Licencia
