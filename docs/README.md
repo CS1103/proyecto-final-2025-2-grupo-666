@@ -403,11 +403,63 @@ Este proyecto no solo cumple con los objetivos académicos planteados, sino que 
 
 ---
 
-### 7. Bibliografía
+# 7. Bibliografía
 
-> *Actualizar con bibliografia utilizada, al menos 4 referencias bibliograficas y usando formato IEEE de referencias bibliograficas.*
+> *Se encuentra en el archivo `BIBLIOGRAFIA.md`. En la ubicación `docs/BIBLIOGRAFIA.md`*
 
 ---
+
+# 8. Diagrama UML
+A continuación, el UML completo
+```mermaid
+classDiagram
+    class Tensor {
+        +shape()
+        +operator+()
+        +operator*()
+    }
+
+    class NeuralNetwork {
+        -layers : vector
+        +add_layer()
+        +train()
+        +predict()
+    }
+
+    class ILayer {
+        <<interface>>
+        +forward()
+        +backward()
+        +save()
+    }
+
+    class Dense {
+        -weights : Tensor
+        -bias : Tensor
+    }
+
+    class ReLU {
+
+    }
+
+    class Softmax {
+
+    }
+
+    class IOptimizer {
+        <<interface>>
+        +update()
+    }
+
+    %% Relaciones
+    NeuralNetwork o--> ILayer : contiene
+    ILayer <|-- Dense
+    ILayer <|-- ReLU
+    ILayer <|-- Softmax
+
+    Dense --> IOptimizer : usa
+    Dense --> Tensor : tiene
+```
 
 ### Licencia
 
