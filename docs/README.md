@@ -51,12 +51,12 @@ El proyecto cumple estrictamente los criterios de **funcionamiento**, **eficienc
 
 ## Integrantes (Plantilla editable)
 
-|   Código   | Alumno                           | Rol Principal                                       |
-|:----------:|:---------------------------------|:----------------------------------------------------|
-| 202320133  | Lucia Jimena Cartagena Miranda   | Desarrollo del Core (Tensor y NN -- EPIC 1, EPIC 2) |
-| 202410409  | Piero Max Ortiz Villafuerte      | Optimizadores y Funciones de Pérdida                |
-| 202320184  | Rodrigo Alonzo Ibarra Carhuarica | Pipelines y Pruebas Automatizadas                   |
-| 202320077  | Oswaldo Alejandro Quispe Monzón  | Aplicaciones (Patterns / Sequence / Controller)     |
+|   Código   | Alumno                           | Rol Principal                                       | % Participación |
+|:----------:|:---------------------------------|:----------------------------------------------------| :---------------|
+| 202320133  | Lucia Jimena Cartagena Miranda   | Desarrollo del Core (Tensor y NN -- EPIC 1, EPIC 2) | 100% |
+| 202410409  | Piero Max Ortiz Villafuerte      | NO TRABAJO                                          | 0% |
+| 202320184  | Rodrigo Alonzo Ibarra Carhuarica | Pipelines y Pruebas Automatizadas                   | 100% |
+| 202320077  | Oswaldo Alejandro Quispe Monzón  | Aplicaciones (Patterns / Sequence / Controller)     | 100% |
 
 > Se utilizó GitHub para control de versiones.
 
@@ -425,10 +425,10 @@ El pipeline valida la búsqueda de hiperparámetros, ejecutado sobre `SequencePr
 
 # 7. Trabajo en equipo
 
-| Tarea                                           | Miembro  | Rol                       |
-|-------------------------------------------------| -------- | ------------------------- |
+| Tarea                                           | Miembro  | Rol                                                 |
+|-------------------------------------------------| -------- |-----------------------------------------------------|
 | Implementar correctamente el uso del EPIC 1 y 2 | Lucia Jimena Cartagena Miranda   | Desarrollo del Core (Tensor y NN -- EPIC 1, EPIC 2) |
-| Ajustar optimizadores y funciones de pérdida    | Piero Max Ortiz Villafuerte      | Optimizadores y Funciones de Pérdida                |
+| NO TRABAJO                                      | Piero Max Ortiz Villafuerte      | NO TRABAJO                                          |
 | Creación del pipeline y tests                   | Rodrigo Alonzo Ibarra Carhuarica | Pipelines y Pruebas Automatizadas                   |
 | Aplicacion completa de archivos .h y .cpp       | Oswaldo Alejandro Quispe Monzón  | Aplicaciones (Patterns / Sequence / Controller)     |
 
