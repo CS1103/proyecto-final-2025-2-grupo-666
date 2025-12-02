@@ -591,9 +591,9 @@ classDiagram
         + load_model()
     }
 
-    NeuralNetwork --> ILayer : contains
-    NeuralNetwork --> ILoss : uses
-    NeuralNetwork --> IOptimizer : uses
+    NeuralNetwork --> ILayer
+    NeuralNetwork --> ILoss
+    NeuralNetwork --> IOptimizer
 
     class EnvGym {
         - position : double
@@ -640,10 +640,10 @@ classDiagram
         + load_model()
     }
 
-    PatternClassifier --> NeuralNetwork : uses
-    SequencePredictor --> "internal model" : uses
-    ControllerDemo --> NeuralNetwork : uses
-    ControllerDemo --> EnvGym : uses
+    PatternClassifier --> NeuralNetwork
+    SequencePredictor --> SequencePredictor
+    ControllerDemo --> NeuralNetwork
+    ControllerDemo --> EnvGym
 
     class TrainingPipeline {
         <<static>>
