@@ -3,87 +3,135 @@
 ## **CS2013 Programación III** · Informe Final
 
 ### **Descripción**
+Este proyecto consiste en la implementación desde cero de un framework de Deep Learning en C++20 moderno. El sistema se construye sobre una librería de tensores genérica, permitiendo la creación, entrenamiento y serialización de redes neuronales multicapa.
 
-> Ejemplo: Implementación de una red neuronal multicapa en C++ para clasificación de dígitos manuscritos.
+Como demostración de la capacidad de generalización del framework, se implementan tres casos de uso prácticos: clasificación de patrones geométricos, predicción de series numéricas y un controlador para un entorno simulado de física (EnvGym), optimizados mediante algoritmos de búsqueda de hiperparámetros.
 
 ### Contenidos
-
 1. [Datos generales](#datos-generales)
 2. [Requisitos e instalación](#requisitos-e-instalación)
-3. [Investigación teórica](#1-investigación-teórica)
-4. [Diseño e implementación](#2-diseño-e-implementación)
-5. [Ejecución](#3-ejecución)
-6. [Análisis del rendimiento](#4-análisis-del-rendimiento)
-7. [Trabajo en equipo](#5-trabajo-en-equipo)
-8. [Conclusiones](#6-conclusiones)
-9. [Bibliografía](#7-bibliografía)
-10. [Licencia](#licencia)
+3. [Estructura del Proyecto (Epics)](#estructura-del-proyecto-epics)
+4. [Investigación teórica](#1-investigación-teórica)
+5. [Diseño e implementación](#2-diseño-e-implementación)
+6. [Manual de Uso](#3-manual-de-uso)
+7. [Análisis del rendimiento y Pipelines](#4-análisis-del-rendimiento-y-pipelines)
+8. [Trabajo en equipo](#5-trabajo-en-equipo)
+9. [Conclusiones](#6-conclusiones)
+10. [Bibliografía](#7-bibliografía)
+
 ---
 
 ### Datos generales
-
-* **Tema**: Redes Neuronales en AI
-* **Grupo**: `group_3_custom_name`
+* **Curso**: Programación III
+* **Tema**: Redes Neuronales y Algoritmos de Optimización en C++
+* **Grupo**: `[NOMBRE_DE_TU_GRUPO]`
 * **Integrantes**:
 
-  * Alumno A – 209900001 (Responsable de investigación teórica)
-  * Alumno B – 209900002 (Desarrollo de la arquitectura)
-  * Alumno C – 209900003 (Implementación del modelo)
-  * Alumno D – 209900004 (Pruebas y benchmarking)
-  * Alumno E – 209900005 (Documentación y demo)
+| Código | Alumno | Rol Principal |
+|:------:|:-------|:--------------|
+| 209900X | Alumno A | Desarrollo del Core (Tensores y NN) |
+| 209900Y | Alumno B | Implementación de Optimizadores y Loss |
+| 209900Z | Alumno C | Desarrollo de Aplicaciones (EnvGym, Patterns) |
+| 209900W | Alumno D | Pipelines de Entrenamiento y Pruebas |
+| 209900Q | Alumno E | Documentación, UI y Video Demo |
 
-> *Nota: Reemplazar nombres y roles reales.*
+> *Nota: Se utilizó GitHub para el control de versiones y GitLab para la gestión del proyecto (Kanban).*
 
 ---
 
 ### Requisitos e instalación
 
-1. **Compilador**: GCC 11 o superior
-2. **Dependencias**:
+El proyecto hace uso intensivo de características modernas de C++20 (concepts, templates variádicos, smart pointers).
 
-   * CMake 3.18+
-   * Eigen 3.4
-   * \[Otra librería opcional]
-3. **Instalación**:
+1. **Compilador**: GCC 10+ o Clang 12+ (Soporte C++20 requerido).
+2. **Sistema de Construcción**: CMake 3.18 o superior.
+3. **Dependencias**:
+   * Biblioteca Estándar (STL).
+   * **No se utilizan librerías externas** para álgebra lineal; toda la matemática se maneja con la clase propia `utec::algebra::Tensor`.
+
+4. **Instalación y Compilación**:
 
    ```bash
-   git clone https://github.com/EJEMPLO/proyecto-final.git
-   cd proyecto-final
+   # Clonar el repositorio
+   git clone [https://github.com/TU_USUARIO/proyecto-nn-cpp.git](https://github.com/TU_USUARIO/proyecto-nn-cpp.git)
+   cd proyecto-nn-cpp
+
+   # Crear directorio de construcción
    mkdir build && cd build
+
+   # Configurar CMake
    cmake ..
+
+   # Compilar
    make
    ```
-
-> *Ejemplo de repositorio y comandos, ajustar según proyecto.*
-
 ---
 
 ### 1. Investigación teórica
 
-* **Objetivo**: Explorar fundamentos y arquitecturas de redes neuronales.
-* **Contenido de ejemplo**:
+Para el desarrollo de este motor de inteligencia artificial se investigaron los siguientes conceptos fundamentales:
 
-  1. Historia y evolución de las NNs.
-  2. Principales arquitecturas: MLP, CNN, RNN.
-  3. Algoritmos de entrenamiento: backpropagation, optimizadores.
+1.  **Tensores y Broadcasting**: Estructuras de datos esenciales para manejar pesos y sesgos en dimensiones arbitrarias. Se estudió cómo las librerías como PyTorch o NumPy manejan la expansión de dimensiones automática.
+2.  **Forward & Backward Propagation**:
+    * *Forward*: El flujo de información desde la entrada hasta la salida.
+    * *Backward*: La aplicación de la regla de la cadena para calcular gradientes parciales de la función de pérdida con respecto a los pesos.
+3.  **Funciones de Activación**:
+    * **ReLU**: Crucial para redes profundas, evitando el problema del desvanecimiento del gradiente.
+    * **Softmax**: Utilizada en la capa de salida para convertir logits en probabilidades sumables a 1.
+4.  **Optimización Estocástica**:
+    * **Adam**: Se investigó su algoritmo de momentos (media y varianza de los gradientes) para lograr una convergencia más rápida y estable que el descenso de gradiente estándar.
 
 ---
 
 ### 2. Diseño e implementación
 
-#### 2.1 Arquitectura de la solución
+#### 2.1 Arquitectura de Clases
+El diseño sigue principios SOLID, utilizando polimorfismo y templates de C++20.
 
-* **Patrones de diseño**: ejemplo: Factory para capas, Strategy para optimizadores.
-* **Estructura de carpetas (ejemplo)**:
+* **`utec::algebra::Tensor<T, DIMS>`**: El núcleo matemático. Gestiona la memoria y las operaciones algebraicas.
+* **`utec::neural_network::ILayer`**: Interfaz base para todas las capas. Define `forward`, `backward`, `update_params` y métodos de serialización.
+* **`utec::neural_network::IOptimizer`**: Interfaz para estrategias de actualización de pesos (`SGD`, `Adam`).
+* **`utec::neural_network::ILoss`**: Abstracción para calcular el error y su gradiente.
+
+* **Estructura de carpetas**:
 
   ```
   proyecto-final/
+  ├── include/
+  │   └── utec/
+  │       ├── algebra/
+  │       │   └── tensor.h          # Core matemático
+  │       ├── nn/
+  │       │   ├── neural_network.h  # Clase contenedora principal
+  │       │   ├── nn_dense.h        # Capa densa
+  │       │   ├── nn_activation.h   # ReLU, Sigmoid, Softmax
+  │       │   ├── nn_optimizer.h    # Adam, SGD
+  │       │   └── nn_loss.h         # MSE, CrossEntropy
+  │       └── apps/
+  │           ├── ControllerDemo.h  # Lógica del controlador (Epic 3)
+  │           ├── PatternClassifier.h
+  │           ├── SequencePredictor.h
+  │           ├── TrainingPipeline.h # Búsqueda de hiperparámetros
+  │           ├── EnvGym.h          # Entorno de simulación
+  |           └── Interfaz.h                 
   ├── src/
-  │   ├── layers/
-  │   ├── optimizers/
-  │   └── main.cpp
+  |     └── utec/
+  |          └── apps/
+  │               ├── ControllerDemo.cpp  # Lógica del controlador (Epic 3)
+  │               ├── PatternClassifier.cpp
+  │               ├── SequencePredictor.cpp
+  │               ├── TrainingPipeline.cpp # Búsqueda de hiperparámetros
+  │               ├── EnvGym.cpp          # Entorno de simulación
+  |               └── Interfaz.cpp  
+  |         
   ├── tests/
-  └── docs/
+  |    ├── test_applications.cpp
+  |    ├── test_neural_network.cpp
+  |    └── test_tensor.cpp
+  ├── docs/
+  |    ├── BIBLIOGRAFIA.md
+  |    └── README.md
+  └──main.cpp                        # Punto de entrada
   ```
 
 #### 2.2 Manual de uso y casos de prueba
